@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="weather-card">
+    <h1 style="color: green;">
+      {{app_title}}
+    </h1>
+    <h3>
+      {{title}}
+    </h3>
+    <input type="text" id="city-input" placeholder="Enter city name" [(ngModel)]="searchQuery">
+    <button id="city-input-btn" (click)="searchWeather()">
+      Get Weather
+    </button>
+    <div id="notfound" *ngIf="weatherDetail">{{weatherDetail}}</div>
+    <div *ngIf="displayWeatherInfo">
+      <h3 id="city-name">{{cityName()}}</h3>
+      <p id="date">{{date() | date : "fullDate"}}</p>
+      <!-- <img id="weather-icon" src='src/app/utils/icons.css/{{weather_icon}}' alt="Weather Icon"> -->
+      <p id="temperature">{{temperature()}}</p>
+      <p id="temperature">Feels Like {{feel_temperature()}}</p>
+      <p id="description">{{description()}}</p>
+      <p id="wind-speed">{{wind_speed()}}</p>
+    </div>
+  </div>
+</div>
+
+<router-outlet />
